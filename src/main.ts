@@ -9,7 +9,7 @@ async function bootstrap() {
 
   // server port
   const port = +configService.get<number>(SERVER_PORT) || 3000;
-
+  app.enableCors();
   await app.listen(port);
 }
 bootstrap();
