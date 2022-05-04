@@ -7,6 +7,8 @@ import { DB, DB_HOST, DB_PORT, DB_PWD, DB_USER } from './config/constants';
 import { EmployeeModule } from './employee/employee.module';
 import { UserModule } from './user/user.module';
 import { BookModule } from './book/book.module';
+import { MembershipModule } from './membership/membership.module';
+import { VisitRecordModule } from './visit-record/visit-record.module';
 
 @Module({
   imports: [
@@ -32,6 +34,8 @@ import { BookModule } from './book/book.module';
     EmployeeModule,
     UserModule,
     BookModule,
+    MembershipModule,
+    VisitRecordModule,
   ],
   controllers: [AppController],
   providers: [AppService],
