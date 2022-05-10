@@ -1,5 +1,4 @@
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { LoanDetailDto } from './dto/loan-detail.dto';
 import { LoanDetailService } from './loan-detail.service';
 
