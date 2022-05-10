@@ -1,5 +1,5 @@
 export class BookDto {
-  idBook?: number;
+  idBook?: string;
   name?: string;
   autor?: string;
   scdd?: string;

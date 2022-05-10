@@ -56,4 +56,18 @@ export class EmployeeEntity {
     nullable: false,
   })
   email: string;
+
+  @Column({
+    name: 'contrasenia',
+    type: 'varchar',
+    nullable: false,
+  })
+  password: string;
+
+  @Column({
+    name: 'estado',
+    type: 'int',
+    nullable: false,
+  })
+  status: number;
 }

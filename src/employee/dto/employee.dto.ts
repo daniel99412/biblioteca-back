@@ -6,4 +6,6 @@ export class EmployeeDto {
   charge?: string;
   address?: string;
   email?: string;
+  password?: string;
+  status?: number;
 }

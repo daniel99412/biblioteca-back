@@ -10,6 +10,7 @@ import { BookModule } from './book/book.module';
 import { MembershipModule } from './membership/membership.module';
 import { VisitRecordModule } from './visit-record/visit-record.module';
 import { LoanModule } from './loan/loan.module';
+import { CopyModule } from './copy/copy.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { LoanModule } from './loan/loan.module';
     MembershipModule,
     VisitRecordModule,
     LoanModule,
+    CopyModule,
   ],
   controllers: [AppController],
   providers: [AppService],

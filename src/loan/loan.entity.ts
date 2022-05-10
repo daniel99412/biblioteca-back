@@ -21,12 +21,12 @@ export class LoanEntity {
     type: 'timestamp',
     nullable: false,
   })
-  loanDate;
+  loanDate: Date;
 
   @Column({
     name: 'fecha_entrega',
     type: 'datetime',
     nullable: false,
   })
-  returnDate;
+  returnDate: Date;
 }
