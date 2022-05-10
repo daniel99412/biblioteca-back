@@ -11,6 +11,7 @@ import { MembershipModule } from './membership/membership.module';
 import { VisitRecordModule } from './visit-record/visit-record.module';
 import { LoanModule } from './loan/loan.module';
 import { CopyModule } from './copy/copy.module';
+import { LoanDetailModule } from './loan-detail/loan-detail.module';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { CopyModule } from './copy/copy.module';
     VisitRecordModule,
     LoanModule,
     CopyModule,
+    LoanDetailModule,
   ],
   controllers: [AppController],
   providers: [AppService],
