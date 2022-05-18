@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { MembershipEntity } from 'src/membership/membership.entity';
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'usuarios' })
 export class UserEntity {

@@ -14,7 +14,10 @@ export class EmployeeEntity {
   })
   name: string;
 
-  @CreateDateColumn({ name: 'fecha_de_ingreso', nullable: false })
+  @CreateDateColumn({
+    name: 'fecha_de_ingreso',
+    nullable: false,
+  })
   admissionDate: Date;
 
   @Column({
@@ -28,6 +31,8 @@ export class EmployeeEntity {
   @Column({
     name: 'salario_diario',
     type: 'decimal',
+    precision: 10,
+    scale: 2,
     nullable: false,
   })
   dailyPayment: number;
@@ -37,7 +42,6 @@ export class EmployeeEntity {
     type: 'varchar',
     length: '100',
     nullable: false,
-    unique: true,
   })
   charge: string;
 
@@ -68,6 +72,7 @@ export class EmployeeEntity {
     name: 'estado',
     type: 'int',
     nullable: false,
+    default: 1,
   })
   status: number;
 }

@@ -40,7 +40,7 @@ export class CopyService {
 
     if (!list.length) {
       throw new NotFoundException({
-        message: `No existen copias del libro`,
+        message: `No existen ejemplares del libro`,
       });
     }
     return list;
@@ -57,13 +57,13 @@ export class CopyService {
     const copy = await this.findById(id);
 
     dto.book ? (copy.book = dto.book) : (copy.book = copy.book);
-    dto.copyNumber
-      ? (copy.copyNumber = dto.copyNumber)
-      : (copy.copyNumber = copy.copyNumber);
+    dto.copyIdentifier
+      ? (copy.copyIdentifier = dto.copyIdentifier)
+      : (copy.copyIdentifier = copy.copyIdentifier);
     dto.status ? (copy.status = dto.status) : (copy.status = copy.status);
 
     await this.copyRepository.save(copy);
 
-    return { message: 'Copia guardada' };
+    return { message: 'Ejemplar guardada' };
   }
 }

@@ -7,13 +7,12 @@ import { MembershipRepository } from './membership.repository';
 @Injectable()
 export class MembershipService {
   constructor(
-    @InjectRepository(MembershipRepository)
+    @InjectRepository(MembershipEntity)
     private membershipRepository: MembershipRepository,
   ) {}
 
   async findAll(): Promise<MembershipEntity[]> {
     const list = await this.membershipRepository.find();
-
     if (!list.length) {
       throw new NotFoundException({ message: 'La lista esta vacia' });
     }

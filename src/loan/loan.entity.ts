@@ -12,7 +12,7 @@ export class LoanEntity {
   @PrimaryGeneratedColumn({ name: 'id_pretamo' })
   idLoan: number;
 
-  @ManyToOne(() => MembershipEntity)
+  @ManyToOne(() => MembershipEntity, { eager: true })
   @JoinColumn({ name: 'id_membresia' })
   membership: MembershipEntity;
 

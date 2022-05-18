@@ -13,11 +13,11 @@ export class LoanDetailEntity {
   @PrimaryGeneratedColumn({ name: 'id_detalle_prestamo' })
   idLoanDetail: number;
 
-  @ManyToOne(() => LoanEntity)
+  @ManyToOne(() => LoanEntity, { eager: true })
   @JoinColumn({ name: 'id_prestamo' })
   loan: LoanEntity;
 
-  @ManyToOne(() => CopyEntity)
+  @ManyToOne(() => CopyEntity, { eager: true })
   @JoinColumn({ name: 'id_ejemplar' })
   copy: CopyEntity;
 

@@ -12,7 +12,7 @@ export class VisitRecordEntity {
   @PrimaryGeneratedColumn({ name: 'id_visita' })
   idVisitRecord: number;
 
-  @ManyToOne(() => UserEntity)
+  @ManyToOne(() => UserEntity, { eager: true })
   @JoinColumn({ name: 'id_usuario' })
   user: UserEntity;
 

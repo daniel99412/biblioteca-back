@@ -14,7 +14,7 @@ export class MembershipEntity {
 
   @Column({
     name: 'fecha_nacimiento',
-    type: 'date',
+    type: 'timestamp',
     nullable: false,
   })
   birthdate: Date;
@@ -35,7 +35,7 @@ export class MembershipEntity {
   })
   status: string;
 
-  @OneToOne(() => UserEntity)
+  @OneToOne(() => UserEntity, { eager: true })
   @JoinColumn({ name: 'id_usuario' })
   user: UserEntity;
 

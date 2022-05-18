@@ -21,7 +21,9 @@ export class EmployeeService {
   }
 
   async findByRfc(rfc: string): Promise<EmployeeEntity> {
-    const employee = await this.employeeRepository.findOne({ rfc: rfc });
+    const employee = await this.employeeRepository.findOne({
+      where: `rfc LIKE "%${rfc}%"`,
+    });
 
     if (!employee) {
       throw new NotFoundException({
@@ -47,6 +49,7 @@ export class EmployeeService {
 
   async save(dto: EmployeeDto): Promise<any> {
     const employee = this.employeeRepository.create(dto);
+    employee.rfc = employee.rfc.toUpperCase();
     await this.employeeRepository.save(employee);
 
     return { message: 'Empleado guardado' };
@@ -55,29 +58,26 @@ export class EmployeeService {
   async update(rfc: string, dto: EmployeeDto): Promise<any> {
     const employee = await this.findByRfc(rfc);
 
-    dto.rfc ? (employee.rfc = dto.rfc) : (employee.rfc = employee.rfc);
-
     dto.name ? (employee.name = dto.name) : (employee.name = employee.name);
-
     dto.telephone
       ? (employee.telephone = dto.telephone)
       : (employee.telephone = employee.telephone);
-
     dto.dailyPayment
       ? (employee.dailyPayment = dto.dailyPayment)
       : (employee.dailyPayment = employee.dailyPayment);
-
     dto.charge
       ? (employee.charge = dto.charge)
       : (employee.charge = employee.charge);
-
     dto.address
       ? (employee.address = dto.address)
       : (employee.address = employee.address);
-
     dto.email
       ? (employee.email = dto.email)
       : (employee.email = employee.email);
+    dto.password
+      ? (employee.password = dto.password)
+      : (employee.password = employee.password);
+    employee.status = dto.status;
 
     await this.employeeRepository.save(employee);
 

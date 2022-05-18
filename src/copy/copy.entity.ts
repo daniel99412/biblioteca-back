@@ -12,16 +12,16 @@ export class CopyEntity {
   @PrimaryGeneratedColumn({ name: 'id_ejemplar' })
   idCopy: number;
 
-  @ManyToOne(() => BookEntity)
+  @ManyToOne(() => BookEntity, { eager: true })
   @JoinColumn({ name: 'id_libro' })
   book: BookEntity;
 
   @Column({
-    name: 'no_ejemplar',
-    type: 'int',
+    name: 'no_identificacion',
+    type: 'varchar',
     nullable: false,
   })
-  copyNumber: number;
+  copyIdentifier: string;
 
   @Column({
     name: 'estado',
@@ -29,4 +29,12 @@ export class CopyEntity {
     nullable: false,
   })
   status: string;
+
+  @Column({
+    name: 'valor',
+    type: 'decimal',
+    precision: 10,
+    scale: 2,
+  })
+  price: number;
 }
