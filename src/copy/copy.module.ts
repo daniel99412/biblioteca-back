@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { BookService } from 'src/book/book.service';
 import { CopyController } from './copy.controller';
 import { CopyEntity } from './copy.entity';
 import { CopyService } from './copy.service';

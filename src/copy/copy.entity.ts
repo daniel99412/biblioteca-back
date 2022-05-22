@@ -13,7 +13,7 @@ export class CopyEntity {
   idCopy: number;
 
   @ManyToOne(() => BookEntity, { eager: true })
-  @JoinColumn({ name: 'id_libro' })
+  @JoinColumn({ name: 'libro_id' })
   book: BookEntity;
 
   @Column({

@@ -20,7 +20,7 @@ export class BookService {
     return list;
   }
 
-  async findById(id: number): Promise<BookEntity> {
+  async findById(id: string): Promise<BookEntity> {
     const book = await this.bookRepository.findOne(id);
 
     if (!book) {
@@ -77,7 +77,7 @@ export class BookService {
     return { message: 'Libro guardado' };
   }
 
-  async update(id: number, dto: BookDto): Promise<any> {
+  async update(id: string, dto: BookDto): Promise<any> {
     const book = await this.findById(id);
 
     dto.amount ? (book.amount = dto.amount) : (book.amount = book.amount);

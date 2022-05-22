@@ -1,3 +1,4 @@
+import { EmployeeEntity } from 'src/employee/employee.entity';
 import { MembershipEntity } from 'src/membership/membership.entity';
 import {
   Column,
@@ -15,6 +16,10 @@ export class LoanEntity {
   @ManyToOne(() => MembershipEntity, { eager: true })
   @JoinColumn({ name: 'id_membresia' })
   membership: MembershipEntity;
+
+  @ManyToOne(() => EmployeeEntity, { eager: true })
+  @JoinColumn({ name: 'id_empleado' })
+  employee: EmployeeEntity;
 
   @Column({
     name: 'fecha_solicitud',

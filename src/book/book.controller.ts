@@ -12,7 +12,7 @@ export class BookController {
   }
 
   @Get(':id')
-  async findById(@Param('id') id: number) {
+  async findById(@Param('id') id: string) {
     return this.bookService.findById(id);
   }
 
@@ -37,7 +37,7 @@ export class BookController {
   }
 
   @Put(':id')
-  async update(@Param('id') id: number, @Body() dto: BookDto) {
+  async update(@Param('id') id: string, @Body() dto: BookDto) {
     return this.bookService.update(id, dto);
   }
 }

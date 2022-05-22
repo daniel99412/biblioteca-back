@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { BookService } from 'src/book/book.service';
 import { CopyEntity } from './copy.entity';
 import { CopyRepository } from './copy.repository';
 import { CopyDto } from './dto/copy.dto';
@@ -35,7 +36,7 @@ export class CopyService {
 
   async findByBook(book: string): Promise<CopyEntity[]> {
     const list = await this.copyRepository.find({
-      where: `id_libro LIKE "%${book}%"`,
+      where: `id_libro LIKE '%${book}%'`,
     });
 
     if (!list.length) {

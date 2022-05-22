@@ -3,7 +3,7 @@ import {
   Column,
   Entity,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -35,7 +35,7 @@ export class MembershipEntity {
   })
   status: string;
 
-  @OneToOne(() => UserEntity, { eager: true })
+  @ManyToOne(() => UserEntity, { eager: true })
   @JoinColumn({ name: 'id_usuario' })
   user: UserEntity;
 
