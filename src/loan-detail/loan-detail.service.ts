@@ -7,7 +7,7 @@ import { LoanDetailRepository } from './loan-detail.repository';
 @Injectable()
 export class LoanDetailService {
   constructor(
-    @InjectRepository(LoanDetailRepository)
+    @InjectRepository(LoanDetailEntity)
     private loanDetailRepository: LoanDetailRepository,
   ) {}
 

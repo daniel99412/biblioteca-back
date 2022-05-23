@@ -1,6 +1,7 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { EmployeeDto } from './dto/employee.dto';
+import { LoginDto } from './dto/login.dto';
 import { EmployeeEntity } from './employee.entity';
 import { EmployeeRepository } from './employee.repository';
 
@@ -82,5 +83,15 @@ export class EmployeeService {
     await this.employeeRepository.save(employee);
 
     return { message: 'Empleado actualizado' };
+  }
+
+  async login(dto: LoginDto): Promise<EmployeeEntity> {
+    const employee = await this.findByRfc(dto.rfc);
+
+    if (employee.password !== dto.password) {
+      throw new HttpException('La contraseña no es correcta', 401);
+    }
+
+    return employee;
   }
 }

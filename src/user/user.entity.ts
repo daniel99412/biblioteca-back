@@ -1,5 +1,4 @@
-import { MembershipEntity } from 'src/membership/membership.entity';
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'usuarios' })
 export class UserEntity {
@@ -30,4 +29,12 @@ export class UserEntity {
     nullable: false,
   })
   type: string;
+
+  @Column({
+    name: 'estado',
+    type: 'int',
+    nullable: false,
+    default: '1',
+  })
+  status: number;
 }

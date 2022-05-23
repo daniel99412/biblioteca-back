@@ -32,6 +32,7 @@ export class MembershipEntity {
     type: 'varchar',
     length: '13',
     nullable: false,
+    default: 'vigente',
   })
   status: string;
 

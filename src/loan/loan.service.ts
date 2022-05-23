@@ -7,7 +7,7 @@ import { LoanRepository } from './loan.repository';
 @Injectable()
 export class LoanService {
   constructor(
-    @InjectRepository(LoanRepository)
+    @InjectRepository(LoanEntity)
     private loanRepository: LoanRepository,
   ) {}
 
@@ -15,7 +15,7 @@ export class LoanService {
     const list = await this.loanRepository.find();
 
     if (!list.length) {
-      throw new NotFoundException({ message: 'La lista esta vacia' });
+      return [];
     }
 
     return list;
@@ -23,8 +23,8 @@ export class LoanService {
 
   async save(dto: LoanDto): Promise<any> {
     const loan = await this.loanRepository.create(dto);
-    await this.loanRepository.save(loan);
+    const loanToReturn = await this.loanRepository.save(loan);
 
-    return { message: 'Prestamo guardado' };
+    return loanToReturn;
   }
 }

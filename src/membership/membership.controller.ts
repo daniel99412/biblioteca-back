@@ -23,6 +23,6 @@ export class MembershipController {
 
   @Put(':id')
   async update(@Param('id') id: number, @Body() dto: MembershipDto) {
-    return this.update(id, dto);
+    return this.membershipService.update(id, dto);
   }
 }

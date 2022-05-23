@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { EmployeeDto } from './dto/employee.dto';
+import { LoginDto } from './dto/login.dto';
 import { EmployeeService } from './employee.service';
 
 @Controller('employee')
@@ -29,5 +30,11 @@ export class EmployeeController {
   @Put(':rfc')
   async update(@Param('rfc') rfc: string, @Body() dto: EmployeeDto) {
     return this.employeeService.update(rfc, dto);
+  }
+
+  @Put()
+  async login(@Body() dto: LoginDto) {
+    console.log('estoy en login');
+    return this.employeeService.login(dto);
   }
 }
