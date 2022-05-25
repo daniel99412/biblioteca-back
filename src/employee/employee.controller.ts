@@ -34,7 +34,6 @@ export class EmployeeController {
 
   @Put()
   async login(@Body() dto: LoginDto) {
-    console.log('estoy en login');
     return this.employeeService.login(dto);
   }
 }

@@ -21,6 +21,18 @@ export class LoanService {
     return list;
   }
 
+  async findById(id: number): Promise<LoanEntity> {
+    const loan = await this.loanRepository.findOne(id);
+
+    if (!loan) {
+      throw new NotFoundException({
+        message: `No existe un prestamo con el id ${id}`,
+      });
+    }
+
+    return loan;
+  }
+
   async save(dto: LoanDto): Promise<any> {
     const loan = await this.loanRepository.create(dto);
     const loanToReturn = await this.loanRepository.save(loan);

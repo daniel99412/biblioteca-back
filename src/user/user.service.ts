@@ -61,6 +61,7 @@ export class UserService {
       : (user.telephone = user.telephone);
 
     dto.type ? (user.type = dto.type) : (user.type = user.type);
+    user.status = dto.status;
 
     await this.userRepository.save(user);
 

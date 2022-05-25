@@ -1,6 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { BookService } from 'src/book/book.service';
 import { CopyEntity } from './copy.entity';
 import { CopyRepository } from './copy.repository';
 import { CopyDto } from './dto/copy.dto';

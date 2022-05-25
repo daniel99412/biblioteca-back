@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { LoanDto } from './dto/loan.dto';
 import { LoanService } from './loan.service';
 
@@ -9,6 +9,11 @@ export class LoanController {
   @Get()
   async findAll() {
     return this.loanService.findAll();
+  }
+
+  @Get(':id')
+  async findById(@Param('id') id: number) {
+    return this.loanService.findById(id);
   }
 
   @Post()

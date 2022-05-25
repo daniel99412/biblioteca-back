@@ -12,6 +12,8 @@ import { VisitRecordModule } from './visit-record/visit-record.module';
 import { LoanModule } from './loan/loan.module';
 import { CopyModule } from './copy/copy.module';
 import { LoanDetailModule } from './loan-detail/loan-detail.module';
+import { DevolutionModule } from './devolution/devolution.module';
+import { DevolutionDetailModule } from './devolution-detail/devolution-detail.module';
 
 @Module({
   imports: [
@@ -42,6 +44,8 @@ import { LoanDetailModule } from './loan-detail/loan-detail.module';
     LoanModule,
     CopyModule,
     LoanDetailModule,
+    DevolutionModule,
+    DevolutionDetailModule,
   ],
   controllers: [AppController],
   providers: [AppService],

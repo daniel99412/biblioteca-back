@@ -3,4 +3,5 @@ export class UserDto {
   name?: string;
   telephone?: string;
   type?: string;
+  status?: number;
 }
